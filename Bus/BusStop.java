@@ -19,6 +19,10 @@ public class BusStop {
         return queueCount() == queue.length;
     }
 
+    public boolean isBusStopEmpty() {
+        return queueCount() == 0;
+    }
+
     public void add(Person person) {
         if(!isBusStopFull()) {
             int counter = queueCount();
@@ -32,4 +36,29 @@ public class BusStop {
             this.queue[i] = null;
         }
     }
+
+    public void removeShuffle() {
+        if (!isBusStopEmpty()) {
+            int counter = queueCount();
+            for(int i=1; i < counter; i++) {
+                this.queue[i-1] = this.queue[i];
+            }
+            this.queue[counter-1] = null;
+        }
+    }
+
+    public boolean positionCheck(int num) {
+        return queue[num] != null;
+    }
+
+
+    // public Person board() {
+    //     if(queueCount() != 0) {
+    //         Person passenger = this.queue[0];
+    //         removeShuffle();
+    //     }
+    //     return passenger;
+    // }
+
+
 }

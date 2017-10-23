@@ -32,4 +32,12 @@ public class Bus {
             this.passengers[i] = null;
         }
     }
+
+    public void collect(BusStop busStop) {
+        if(!isBusFull() && !busStop.isBusStopEmpty()) {
+            int counter = passengerCount();
+            this.passengers[counter] = new Person();
+            busStop.removeShuffle();
+        }
+    }
 }
