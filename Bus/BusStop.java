@@ -50,15 +50,4 @@ public class BusStop {
     public boolean positionCheck(int num) {
         return queue[num] != null;
     }
-
-
-    // public Person board() {
-    //     if(queueCount() != 0) {
-    //         Person passenger = this.queue[0];
-    //         removeShuffle();
-    //     }
-    //     return passenger;
-    // }
-
-
 }

@@ -40,4 +40,11 @@ public class Bus {
             busStop.removeShuffle();
         }
     }
+
+    public void fill(BusStop busStop) {
+        int counter = this.passengers.length - passengerCount();
+        for(int i=0; i < counter; i++) {
+            collect(busStop);
+        }
+    }
 }

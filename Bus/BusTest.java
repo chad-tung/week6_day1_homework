@@ -57,7 +57,26 @@ public class BusTest{
         assertEquals(5, bus.passengerCount());
         assertEquals(4, busStop.queueCount());
         assertEquals(false, busStop.positionCheck(4));
+    }
 
+    @Test
+    public void busFill() {
+        for(int i=0; i < 5; i++){
+            busStop.add(person);
+        }
+        for(int i=0; i < 7; i++){
+            bus.add(person);
+        }
+
+        bus.fill(busStop);
+
+        assertEquals(10, bus.passengerCount());
+        assertEquals(2, busStop.queueCount());
+        assertEquals(true, busStop.positionCheck(0));
+        assertEquals(true, busStop.positionCheck(1));
+        assertEquals(false, busStop.positionCheck(2));
+        assertEquals(false, busStop.positionCheck(3));
+        assertEquals(false, busStop.positionCheck(4));
 
     }
 }
